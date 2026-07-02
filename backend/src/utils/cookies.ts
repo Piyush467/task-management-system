@@ -3,11 +3,11 @@ import { env } from "../config/env";
 
 export const cookieOptions: CookieOptions = {
   httpOnly: true,
-
   secure: env.NODE_ENV === "production",
-
-  sameSite: "lax",
-
+  sameSite:
+    env.NODE_ENV === "production"
+      ? "none"
+      : "lax",
   maxAge:
     env.COOKIE_EXPIRES_IN *
     24 *
